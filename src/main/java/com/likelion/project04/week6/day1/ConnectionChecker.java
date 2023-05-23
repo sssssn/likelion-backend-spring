@@ -1,4 +1,4 @@
-package com.likelion.project04.db;
+package com.likelion.project04.week6.day1;
 
 import java.sql.*;
 import java.util.Map;
