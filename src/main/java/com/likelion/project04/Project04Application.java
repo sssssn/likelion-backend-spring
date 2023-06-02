@@ -31,11 +31,23 @@ public class Project04Application {
 	@Bean
 	public CommandLineRunner demo(CustomerRepository repository) {
 		return args -> {
-			repository.save(new Customer("sn", "k"));
+			repository.save(new Customer("sn", "kwon"));
+			repository.save(new Customer("tofu", "kwon"));
+			repository.save(new Customer("pang", "food"));
 
+			log.info("FindAll---------------------");
 			for (Customer customer : repository.findAll()) {
 				log.info(customer.toString());
 			}
+			log.info("");
+
+			log.info("findById---------------------");
+			Customer customer = repository.findById(1L);
+			log.info(customer.toString());
+			log.info("");
+
+			log.info("findByLastName---------------");
+			repository.findByLastName("kwon").forEach(c -> {log.info(c.toString());});
 			log.info("");
 		};
 	}
